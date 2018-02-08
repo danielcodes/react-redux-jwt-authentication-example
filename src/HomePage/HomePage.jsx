@@ -17,22 +17,22 @@ class HomePage extends React.Component {
 		const { user, users } = this.props;
 		return (
 			<div className="col-md-6 col-md-offset-3">
-				<h1>Hi {user.firstName}!</h1>
-				<p>You're logged in with React & JWT!!</p>
+				<h1>Hi {user.username}!</h1>
+
+				<p>You've logged into dummy app</p>
+
 				<h3>Users from secure api end point:</h3>
 				{users.loading && <em>Loading users...</em>}
 				{users.error && <span className="text-danger">ERROR: {users.error}</span>}
 				{users.items &&
-						<ul>
-								{users.items.map((user, index) =>
-										<li key={user.username}>
-												{user.username}
-										</li>
-								)}
-						</ul>
+					<ul>
+						{users.items.map((user, index) =>
+							<li key={user.username}> {user.username} </li>
+						)}
+					</ul>
 				}
 				<p>
-						<Link to="/login">Logout</Link>
+					<Link to="/login">Logout</Link>
 				</p>
 			</div>
 		);
@@ -40,12 +40,12 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users
-    };
+	const { users, authentication } = state;
+	const { user } = authentication;
+	return {
+		user,
+		users
+	};
 }
 
 const connectedHomePage = connect(mapStateToProps)(HomePage);
