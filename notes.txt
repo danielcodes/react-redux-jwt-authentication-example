@@ -1,0 +1,15 @@
+
+Things that need to be built out
+
+[ ] A sign up page, will be similar to login
+
+
+
+Things that I learn as I implement these things
+-After signup -> login, I wanted to display a message
+solution is to pass in a state argument after the route
+see, https://stackoverflow.com/q/41466055
+accessed though, 'this.props.location.state.<field>'
+
+
+
