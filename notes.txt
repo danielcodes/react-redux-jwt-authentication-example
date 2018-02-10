@@ -1,7 +1,12 @@
 
 Things that need to be built out
 
-[ ] A sign up page, will be similar to login
+[x] A sign up page, will be similar to login
+[x] Have all pages inherit from one base page
+[ ] Move the alert to under the navbar
+[ ] A better landing page, tie the auth functionality together
+[ ] Add a 404 page for routes that don't exists
+[ ] Fix exports, too verbose...
 
 
 
@@ -10,6 +15,4 @@ Things that I learn as I implement these things
 solution is to pass in a state argument after the route
 see, https://stackoverflow.com/q/41466055
 accessed though, 'this.props.location.state.<field>'
-
-
 

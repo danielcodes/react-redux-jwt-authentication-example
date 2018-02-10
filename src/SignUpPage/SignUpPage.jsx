@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { BasePage } from '../BasePage';
+
 import { userActions } from '../_actions';
 
 class SignUpPage extends React.Component {
@@ -42,7 +44,7 @@ class SignUpPage extends React.Component {
 		const { loggingIn } = this.props;
 		const { username, email, password, submitted } = this.state;
 		return (
-			<div className="col-md-6 col-md-offset-3">
+			<BasePage>
 				<h2>Sign Up</h2>
 
 				<form name="form" onSubmit={this.handleSubmit}>
@@ -77,7 +79,7 @@ class SignUpPage extends React.Component {
 						}
 					</div>
 				</form>
-			</div>
+			</BasePage>
 		);
 	}
 }

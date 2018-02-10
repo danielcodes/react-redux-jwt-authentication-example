@@ -1,6 +1,11 @@
 import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import AppBar from 'material-ui/AppBar';
+import Button from 'material-ui/Button';
 
 import { history } from '../_helpers';
 import { alertActions } from '../_actions';
@@ -9,6 +14,9 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { LandingPage } from '../LandingPage';
 import { SignUpPage } from '../SignUpPage';
+
+const theme = createMuiTheme();
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -24,24 +32,18 @@ class App extends React.Component {
 	render() {
 		const { alert } = this.props;
 		return (
-			<div className="jumbotron">
-				<div className="container">
-					<div className="col-sm-8 col-sm-offset-2">
-						{alert.message &&
-							<div className={`alert ${alert.type}`}>{alert.message}</div>
-						}
+			<MuiThemeProvider theme={theme}>
+				{alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
 
-						<Router history={history}>
-							<div>
-								<PrivateRoute exact path="/" component={HomePage} />
-								<Route path="/home" component={LandingPage} />
-								<Route path="/login" component={LoginPage} />
-								<Route path="/signup" component={SignUpPage} />
-							</div>
-						</Router>
+				<Router history={history}>
+					<div>
+						<PrivateRoute exact path="/" component={HomePage} />
+						<Route path="/home" component={LandingPage} />
+						<Route path="/login" component={LoginPage} />
+						<Route path="/signup" component={SignUpPage} />
 					</div>
-				</div>
-			</div>
+				</Router>
+			</MuiThemeProvider>
 		);
 	}
 }
